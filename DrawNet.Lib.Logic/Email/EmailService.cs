@@ -25,11 +25,11 @@ namespace DrawNet.Lib.Core.Services.Email
 
         public static string PasswordResetEmail( Logic.Email.Templates.Account.ResetPassword passwordResetEmail)
         {
-            return RenderPartialViewToString(Path.Combine( ExecutionDirectoryPathName, "Services/Email/Views/" ) + "ResetPassword.cshtml", "TemplateAlias", passwordResetEmail );
+            return RenderPartialViewToString(Path.Combine( ExecutionDirectoryPathName, "Email/Templates/Account/" ) + "ResetPassword.cshtml", "TemplateAlias", passwordResetEmail );
         }
 
         public static string ExecutionDirectoryPathName => Path.GetDirectoryName(new System.Uri( Assembly.GetExecutingAssembly().CodeBase ).AbsolutePath);
-        public static string ViewPath => Path.Combine(ExecutionDirectoryPathName, "Services/Email/Views/");
+        public static string ViewPath => Path.Combine(ExecutionDirectoryPathName, "Email/Templates/" );
     }
 
 

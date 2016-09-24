@@ -1,8 +1,7 @@
-namespace DrawNet.DataContext.Migrations
+using System.Data.Entity.Migrations;
+
+namespace DrawNet.Lib.DataContext.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class addedRoles : DbMigration
     {
         public override void Up()

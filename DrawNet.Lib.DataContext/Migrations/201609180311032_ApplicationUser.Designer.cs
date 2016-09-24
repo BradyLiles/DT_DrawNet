@@ -7,13 +7,13 @@ namespace DrawNet.Lib.TableInterfaces.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class projectRecreate : IMigrationMetadata
+    public sealed partial class ApplicationUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(projectRecreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ApplicationUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608260220349_project-Recreate"; }
+            get { return "201609180311032_ApplicationUser"; }
         }
         
         string IMigrationMetadata.Source

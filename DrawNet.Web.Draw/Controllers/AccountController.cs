@@ -11,6 +11,9 @@ using Microsoft.Owin.Security;
 using DrawNet.Web.Draw.Models;
 using System.Net.Mail;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using DrawNet.Lib.DataContext.Application;
+using DrawNet.Lib.DataContext.Repository;
 
 namespace DrawNet.Web.Draw.Controllers
 {
@@ -75,9 +78,16 @@ namespace DrawNet.Web.Draw.Controllers
                 return View(model);
             }
 
+            UserRepository userRepository = new UserRepository();
+            if (new EmailAddressAttribute().IsValid(model.UserNameOrEmail))
+            {
+                model.UserNameOrEmail = userRepository.GetUserName(model.UserNameOrEmail);
+            }
+
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserNameOrEmail, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -153,7 +163,7 @@ namespace DrawNet.Web.Draw.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new Lib.DataContext.Tables.ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -242,7 +252,6 @@ namespace DrawNet.Web.Draw.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
-            UserManager.
             ResetPasswordViewModel resetPasswordViewModel = new ResetPasswordViewModel();
 
             return code == null ? View("Error") : View();
@@ -378,7 +387,7 @@ namespace DrawNet.Web.Draw.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new Lib.DataContext.Tables.ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

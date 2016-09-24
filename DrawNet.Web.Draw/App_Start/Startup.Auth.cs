@@ -1,4 +1,6 @@
 ﻿using System;
+using DrawNet.Lib.DataContext.Application;
+using DrawNet.Lib.DataContext.Tables;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿/*using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -30,4 +30,4 @@ namespace DrawNet.Web.Draw.Models
             return new ApplicationDbContext();
         }
     }
-}
+}*/

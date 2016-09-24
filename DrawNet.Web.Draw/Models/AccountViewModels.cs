@@ -50,8 +50,7 @@ namespace DrawNet.Web.Draw.Models
     {
         [Required]
         [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        public string UserNameOrEmail { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

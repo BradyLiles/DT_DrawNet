@@ -1,19 +1,11 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.ModelConfiguration;
 
-namespace DrawNet.Lib.DataContext.DataLayer
+namespace DrawNet.Lib.DataContext.Tables
 {
-    public class ApplicationUserConfiguration : EntityTypeConfiguration<ApplicationUser>
-    {
-        public ApplicationUserConfiguration()
-        {
-            Property(au => au.FirstName).HasMaxLength(15).IsOptional();
-        }
-    }
-
     public class ApplicationUser : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -25,5 +17,15 @@ namespace DrawNet.Lib.DataContext.DataLayer
         }
 
         public string FirstName { get; set; }
+        public string LastName { get; set; }
+    }
+
+    public class ApplicationUserConfiguration : EntityTypeConfiguration<ApplicationUser>
+    {
+        public ApplicationUserConfiguration()
+        {
+            Property(au => au.FirstName).HasMaxLength(50).IsOptional();
+            Property(au => au.LastName).HasMaxLength(50).IsOptional();
+        }
     }
 }

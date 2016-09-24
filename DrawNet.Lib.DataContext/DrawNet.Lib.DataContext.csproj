@@ -61,9 +61,38 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,9 +101,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLayer\ApplicationDbContext.cs" />
-    <Compile Include="DataLayer\ApplicationUserConfiguration.cs" />
-    <Compile Include="DataLayer\ReportConfiguration.cs" />
+    <Compile Include="Application\ApplicationSignInManager.cs" />
+    <Compile Include="Application\ApplicationUserManager.cs" />
+    <Compile Include="Application\EmailService.cs" />
+    <Compile Include="Application\SmsService.cs" />
+    <Compile Include="DataContextBase.cs" />
+    <Compile Include="Migrations\201609180435381_Organize.cs" />
+    <Compile Include="Migrations\201609180435381_Organize.Designer.cs">
+      <DependentUpon>201609180435381_Organize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609232349120_RepositoryModel.cs" />
+    <Compile Include="Migrations\201609232349120_RepositoryModel.Designer.cs">
+      <DependentUpon>201609232349120_RepositoryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609240030472_extendedIdentityRole.cs" />
+    <Compile Include="Migrations\201609240030472_extendedIdentityRole.Designer.cs">
+      <DependentUpon>201609240030472_extendedIdentityRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\_RepositoryBase.cs" />
+    <Compile Include="Tables\Interface\IAspnetUser.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Tables\ApplicationDbContext.cs" />
     <Compile Include="Migrations\201603131135154_initial.cs" />
     <Compile Include="Migrations\201603131135154_initial.Designer.cs">
       <DependentUpon>201603131135154_initial.cs</DependentUpon>
@@ -91,9 +138,15 @@
     <Compile Include="Migrations\201608260220349_project-Recreate.Designer.cs">
       <DependentUpon>201608260220349_project-Recreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609180311032_ApplicationUser.cs" />
+    <Compile Include="Migrations\201609180311032_ApplicationUser.Designer.cs">
+      <DependentUpon>201609180311032_ApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\ApplicationRole.cs" />
-    <Compile Include="Models\Report.cs" />
+    <Compile Include="Tables\ApplicationRole.cs" />
+    <Compile Include="Tables\ApplicationUser.cs" />
+    <Compile Include="Repository\_IRepositoryBase.cs" />
+    <Compile Include="Tables\Report.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +177,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608260220349_project-Recreate.resx">
       <DependentUpon>201608260220349_project-Recreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609180311032_ApplicationUser.resx">
+      <DependentUpon>201609180311032_ApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609180435381_Organize.resx">
+      <DependentUpon>201609180435381_Organize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609232349120_RepositoryModel.resx">
+      <DependentUpon>201609232349120_RepositoryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609240030472_extendedIdentityRole.resx">
+      <DependentUpon>201609240030472_extendedIdentityRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

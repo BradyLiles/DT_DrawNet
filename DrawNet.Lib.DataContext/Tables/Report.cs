@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity.ModelConfiguration;
 
-namespace DrawNet.Lib.DataContext.Models
+namespace DrawNet.Lib.DataContext.Tables
 {
     public class Report
     {
@@ -22,5 +18,14 @@ namespace DrawNet.Lib.DataContext.Models
         Approved = 30,
         Canceled = -10,
         Rejected = -20
+    }
+
+    public class ReportConfiguration : EntityTypeConfiguration<Report>
+    {
+        public ReportConfiguration()
+        {
+            Property(r => r.ReportName).HasMaxLength(120).IsRequired();
+        }
+
     }
 }

@@ -14,9 +14,9 @@
             @Html.AntiForgeryToken()
             
             <div class="form-group icon-addon addon-md top-buffer-15">
-                @Html.TextBoxFor(m => m.Email, new {@class = "form-control placeholder-dark-gray", @placeholder = "User Name Or Email"})
+                @Html.TextBoxFor(m => m.UserNameOrEmail, new {@class = "form-control placeholder-dark-gray", @placeholder = "User Name Or Email"})
                 <label for="email" class="glyphicon glyphicon-user text-info" rel="tooltip" title="Username"></label>
-                @Html.ValidationMessageFor(m => m.Email, "", new {@class = "text-danger"})
+                @Html.ValidationMessageFor(m => m.UserNameOrEmail, "", new {@class = "text-danger"})
             </div>
             <div class="form-group icon-addon addon-md top-buffer-15">
                 @Html.PasswordFor(m => m.Password, new {@class = "form-control placeholder-dark-gray", @placeholder = "User Password"})

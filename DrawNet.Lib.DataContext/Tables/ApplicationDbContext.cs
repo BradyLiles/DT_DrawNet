@@ -1,8 +1,7 @@
 ﻿using System.Data.Entity;
-using DrawNet.Lib.DataContext.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace DrawNet.Lib.DataContext.DataLayer
+namespace DrawNet.Lib.DataContext.Tables
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

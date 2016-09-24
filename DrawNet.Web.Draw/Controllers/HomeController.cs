@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace DrawNet.Web.Draw.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()

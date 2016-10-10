@@ -12,6 +12,7 @@ using DrawNet.Web.Draw.Models;
 using System.Net.Mail;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using DrawNet.Lib.Core.Common.DataAnnotation;
 using DrawNet.Lib.DataContext.Application;
 using DrawNet.Lib.DataContext.Repository;
 
@@ -59,7 +60,7 @@ namespace DrawNet.Web.Draw.Controllers
 
         //
         // GET: /Account/Login
-        [AllowAnonymous]
+//        [AnonymousOnly]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;

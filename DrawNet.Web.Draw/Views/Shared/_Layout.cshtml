@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using DrawNet.Lib.Core.Common.Extensions
+@using DrawNet.Lib.DataContext.Application
+@using DrawNet.Lib.DataContext.Migrations
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -40,7 +44,6 @@
                     <ul class="dropdown-menu">
                         <li class="header">You have 10 notifications</li>
                         <li>
-                            @User.Identity.Name
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
                                 <li>
@@ -153,13 +156,15 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="~/Content/images/avatar_blank_x160.png" class="user-image" alt="User Image">
-                        <span class="hidden-xs">FirstName LastName</span>
+                        <span class="hidden-xs">@User.Identity.GetFirstName() - @User.Identity.GetLastName()</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="~/Content/images/avatar_blank_x160.png" class="img-circle" alt="User Image">
                             <p>
+                                @User.Identity.AuthenticationType
+                                @User.Identity.GetUserName()
                                 FirstName LastName - User Role
                                 <small>Member since Nov. 2015</small>
                             </p>
@@ -216,7 +221,7 @@
                 <img src="~/Content/images/avatar_blank_x160.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Current Username</p>
+                <p>@User.Identity.GetFirstName() @User.Identity.GetLastName()</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> User Role</a>
             </div>
         </div>

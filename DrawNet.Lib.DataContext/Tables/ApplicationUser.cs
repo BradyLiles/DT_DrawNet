@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -12,6 +15,10 @@ namespace DrawNet.Lib.DataContext.Tables
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+
+            //Claims are access in: DrawNet.Lib.Core.Common.Extensions.IdentityExtensions
+            userIdentity.AddClaim(new Claim("FirstName", this.FirstName));
+            userIdentity.AddClaim(new Claim("LastName", this.LastName));
             // Add custom user claims here
             return userIdentity;
         }
@@ -27,5 +34,10 @@ namespace DrawNet.Lib.DataContext.Tables
             Property(au => au.FirstName).HasMaxLength(50).IsOptional();
             Property(au => au.LastName).HasMaxLength(50).IsOptional();
         }
+
+
     }
+
+
+
 }

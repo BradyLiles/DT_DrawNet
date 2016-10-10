@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DrawNet.Lib.DataContext.Tables;
-using DrawNet.Lib.DataContext.Tables.Interface;
 
 namespace DrawNet.Lib.DataContext.Repository
 {

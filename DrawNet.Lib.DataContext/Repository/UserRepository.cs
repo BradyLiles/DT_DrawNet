@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using DrawNet.Lib.DataContext.Tables;
-using DrawNet.Lib.DataContext.Tables.Interface;
 
 namespace DrawNet.Lib.DataContext.Repository
 {

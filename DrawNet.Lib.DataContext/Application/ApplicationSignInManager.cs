@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
@@ -15,6 +16,7 @@ namespace DrawNet.Lib.DataContext.Application
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(DrawNet.Lib.DataContext.Tables.ApplicationUser user)
         {
+
             return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
         }
 

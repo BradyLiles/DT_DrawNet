@@ -15,13 +15,13 @@ namespace DrawNet.Web.Draw
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/application").Include(
-                "~/Scripts/app.min.js",
-                "~/Scripts/demo.js"));
+                        "~/Scripts/app.min.js",
+                        "~/Scripts/demo.js"));
 
 
             bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
-                "~/Content/plugins/fastclick/fastclick.min.js",
-                "~/Content/plugins/slimScroll/jquery.slimscroll.min.js"));
+                        "~/Content/plugins/fastclick/fastclick.min.js",
+                        "~/Content/plugins/slimScroll/jquery.slimscroll.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

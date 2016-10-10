@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DrawNet.Lib.DataContext</RootNamespace>
     <AssemblyName>DrawNet.Lib.DataContext</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -26,6 +26,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -119,7 +120,6 @@
       <DependentUpon>201609240030472_extendedIdentityRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\_RepositoryBase.cs" />
-    <Compile Include="Tables\Interface\IAspnetUser.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Tables\ApplicationDbContext.cs" />
     <Compile Include="Migrations\201603131135154_initial.cs" />
